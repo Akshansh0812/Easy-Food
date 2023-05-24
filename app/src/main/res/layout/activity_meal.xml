@@ -67,7 +67,7 @@
                     android:layout_weight="1"
                     android:text="Category : "
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="18sp"
                     app:drawableLeftCompat="@drawable/ic_category"
                     app:drawableTint="@color/g_black" />
 
@@ -78,7 +78,7 @@
                     android:layout_weight="1"
                     android:text="Area : "
                     android:textColor="@color/g_black"
-                    android:textSize="14sp"
+                    android:textSize="18sp"
                     app:drawableLeftCompat="@drawable/ic_location"
                     app:drawableTint="@color/g_black"/>
 
