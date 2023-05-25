@@ -5,13 +5,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.easyfood.databinding.PopularItemsBinding
-import com.example.easyfood.pojo.CategoryMeals
+import com.example.easyfood.pojo.PopularMeals
 
 class MostPopularAdapter() : RecyclerView.Adapter<MostPopularAdapter.PopularMealViewHolder>(){
-    private var mealList = ArrayList<CategoryMeals>()
-    lateinit var onItemClick:((CategoryMeals)->Unit)
+    private var mealList = ArrayList<PopularMeals>()
+    lateinit var onItemClick:((PopularMeals)->Unit)
 
-    fun setMeals(mealList: ArrayList<CategoryMeals>){
+    fun setMeals(mealList: ArrayList<PopularMeals>){
         this.mealList = mealList
         notifyDataSetChanged()
     }
