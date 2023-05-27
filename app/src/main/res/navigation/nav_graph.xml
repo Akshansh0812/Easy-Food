@@ -18,7 +18,7 @@
         tools:layout="@layout/fragment_categories" />
     <fragment
         android:id="@+id/favoritesFragment"
-        android:name="com.example.easyfood.fragments.favoritesFragment"
+        android:name="com.example.easyfood.fragments.FavoritesFragment"
         android:label="fragment_favorites"
         tools:layout="@layout/fragment_favorites" />
 </navigation>
