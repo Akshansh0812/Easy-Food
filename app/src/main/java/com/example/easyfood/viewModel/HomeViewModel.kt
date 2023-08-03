@@ -95,11 +95,6 @@ class HomeViewModel(private val mealDatabase: MealDatabase): ViewModel() {
     fun observeFavoriteMealsLiveData():LiveData<List<Meal>>{
         return favouriteMealsLiveData
     }
-    fun insertMeal(meal: Meal){
-        viewModelScope.launch {
-            mealDatabase.mealDao().insert(meal)
-        }
-    }
     fun deleteMeal(meal: Meal){
         viewModelScope.launch {
             mealDatabase.mealDao().delete(meal)

@@ -17,10 +17,7 @@ class CategoryMealsViewModel:ViewModel() {
 
     fun getMealsByCategory(categoryName:String){
         RetrofitInstance.api.getMealByCategory(categoryName).enqueue(object :Callback<PopularMealList>{
-            override fun onResponse(
-                call: Call<PopularMealList>,
-                response: Response<PopularMealList>
-            ) {
+            override fun onResponse(call: Call<PopularMealList>, response: Response<PopularMealList>) {
                 if(response.body() != null){
                     mealsLiveData.value = response.body()!!.meals
                 }

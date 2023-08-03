@@ -75,7 +75,7 @@ class HomeFragment : Fragment() {
 
     private fun onSearchIconClick() {
         binding.imgSearch.setOnClickListener{
-            findNavController().navigate(R.id.searchFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
         }
     }
 
@@ -123,8 +123,8 @@ class HomeFragment : Fragment() {
 
     private fun observerPopularMeals() {
         viewModel.observePopularItemsLiveData().observe(viewLifecycleOwner,
-        ){mealList->
-                popularItemsAdapter.setMeals(mealList as ArrayList<PopularMeals>)
+        ){meals->
+                popularItemsAdapter.setMeals(meals as ArrayList<PopularMeals>)
         }
     }
 
@@ -138,14 +138,13 @@ class HomeFragment : Fragment() {
         }
     }
     private fun observerRandomMeal(){
-        viewModel.observeRandomMealLiveData().observe(viewLifecycleOwner, object : Observer<Meal>{
-            override fun onChanged(value: Meal) {
-                Glide.with(this@HomeFragment)
-                    .load(value.strMealThumb)
-                    .into(binding.imgRandomMeal)
+        viewModel.observeRandomMealLiveData().observe(viewLifecycleOwner
+        ) { value ->
+            Glide.with(this@HomeFragment)
+                .load(value.strMealThumb)
+                .into(binding.imgRandomMeal)
 
-                randomMeal = value
-            }
-        })
+            randomMeal = value
+        }
     }
 }

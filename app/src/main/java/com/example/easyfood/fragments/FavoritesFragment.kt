@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.easyfood.activities.CategoryMealsActivity
@@ -18,9 +19,9 @@ import com.example.easyfood.viewModel.HomeViewModel
 import com.google.android.material.snackbar.Snackbar
 
 class FavoritesFragment : Fragment() {
-    private lateinit var binding:FragmentFavoritesBinding
+    private lateinit var binding : FragmentFavoritesBinding
     private lateinit var viewModel : HomeViewModel
-    private lateinit var favoritesAdapter: FavoritesMealsAdapter
+    private lateinit var favoritesAdapter : FavoritesMealsAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +33,7 @@ class FavoritesFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentFavoritesBinding.inflate(inflater)
         return binding.root
     }
@@ -59,12 +60,12 @@ class FavoritesFragment : Fragment() {
                 val position = viewHolder.adapterPosition
                 viewModel.deleteMeal(favoritesAdapter.differ.currentList[position])
 
-                Snackbar.make(requireView(), "Meal Deleted", Snackbar.LENGTH_LONG).setAction(
-                    "Undo",
-                    View.OnClickListener {
-                        viewModel.insertMeal(favoritesAdapter.differ.currentList[position])
-                    }
-                ).show()
+//                Snackbar.make(requireView(), "Meal Deleted", Snackbar.LENGTH_LONG).setAction(
+//                    "Undo",
+//                    View.OnClickListener {
+//                        viewModel.insertMeal(favoritesAdapter.differ.currentList[position])
+//                    }
+//                ).show()
             }
         }
         ItemTouchHelper(itemTouchHelper).attachToRecyclerView(binding.rvFavorites)
@@ -74,6 +75,7 @@ class FavoritesFragment : Fragment() {
         favoritesAdapter = FavoritesMealsAdapter()
         binding.rvFavorites.apply {
             layoutManager = GridLayoutManager(context,2,GridLayoutManager.VERTICAL,false)
+//            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
             adapter = favoritesAdapter
         }
     }

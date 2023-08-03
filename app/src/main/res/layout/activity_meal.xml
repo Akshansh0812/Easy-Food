@@ -17,7 +17,7 @@
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:contentScrim="@color/g_black"
+            app:contentScrim="@color/accent"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
             app:title="Meal name">
 
@@ -119,7 +119,7 @@
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:layout_gravity="bottom|center"
-        android:src="@drawable/ic_youtube"
+        android:src="@drawable/ic_youtube1"
         android:layout_marginBottom="@dimen/_5sdp"
         />
 
