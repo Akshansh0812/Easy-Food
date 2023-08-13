@@ -11,10 +11,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.easyfood.activities.MainActivity
 import com.example.easyfood.adapters.FavoritesMealsAdapter
 import com.example.easyfood.databinding.FragmentSearchBinding
-import com.example.easyfood.pojo.Category
 import com.example.easyfood.viewModel.HomeViewModel
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class SearchFragment : Fragment() {
