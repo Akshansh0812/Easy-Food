@@ -10,7 +10,7 @@ import com.example.easyfood.pojo.PopularMeals
 
 class CategoryMealsAdapter:RecyclerView.Adapter<CategoryMealsAdapter.CategoryMealsViewModel>() {
     private var mealsList = ArrayList<PopularMeals>()
-
+    lateinit var onItemClick:((PopularMeals)->Unit)
     fun setMealsList(mealsList: List<PopularMeals>){
         this.mealsList = mealsList as ArrayList<PopularMeals>
         notifyDataSetChanged()
@@ -31,6 +31,10 @@ class CategoryMealsAdapter:RecyclerView.Adapter<CategoryMealsAdapter.CategoryMea
             .into(holder.binding.imgMeal)
 
         holder.binding.tvMealName.text = mealsList[position].strMeal
+
+        holder.itemView.setOnClickListener{
+            onItemClick.invoke(mealsList[position])
+        }
     }
 
     class CategoryMealsViewModel(val binding:MealItemBinding):RecyclerView.ViewHolder(binding.root)

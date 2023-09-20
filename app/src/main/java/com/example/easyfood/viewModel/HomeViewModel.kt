@@ -100,5 +100,9 @@ class HomeViewModel(private val mealDatabase: MealDatabase): ViewModel() {
             mealDatabase.mealDao().delete(meal)
         }
     }
-
+    fun insertMeal(meal: Meal){
+        viewModelScope.launch {
+            mealDatabase.mealDao().insert(meal)
+        }
+    }
 }
