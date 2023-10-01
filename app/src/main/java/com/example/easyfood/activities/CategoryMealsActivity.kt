@@ -23,7 +23,7 @@ class CategoryMealsActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         prepareRecyclerView()
-        onPopularItemClick()
+        
 
         categoryMvvm = ViewModelProvider(this)[CategoryMealsViewModel::class.java]
 
@@ -43,14 +43,5 @@ class CategoryMealsActivity : AppCompatActivity() {
             adapter = categoryMealAdapter
         }
     }
-    private fun onPopularItemClick() {
-       categoryMealAdapter.onItemClick = {
-               meal->
-           val intent = Intent(this, MealActivity::class.java)
-           intent.putExtra(HomeFragment.MEAL_ID, meal.idMeal)
-           intent.putExtra(HomeFragment.MEAL_NAME, meal.strMeal)
-           intent.putExtra(HomeFragment.MEAL_THUMB, meal.strMealThumb)
-           startActivity(intent)
-       }
-   }
+    
 }
